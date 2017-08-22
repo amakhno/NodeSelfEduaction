@@ -8,15 +8,17 @@
 <script>
 $(document).ready(function() {
 	$('form').submit(function(evt){
-		evt.preventDefault();
+		//evt.preventDefault();
 	}); // конец submit
 	$('#button').click(function() {
 		var $field = $('#textfield')
 		var fieldVal = $field.val();
 		if (fieldVal) { 
 			$('#tasklist').append('<li>' + fieldVal + '</li>' );
-			$field.val('');
+			//$field.val('');
 			$field.focus();
+		} else {
+			alert("Empty field");
 		}
 	})// конец click
 	$('#tasklist').on('click','li',function() {
@@ -38,7 +40,14 @@ $(document).ready(function() {
 	<div class="content">
 		<div class="main">
 			<form action="#" method="get">
-		<p><input name="textfield" type="text" id="textfield"> <input name="button" type="button" id="button" value="Добавить задание"></p>
+		<p><input name="textfield" type="text" id="textfield"> <input name="button" type="submit" style="background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 5px 5px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;" id="button" value="Добавить задание"></p>
 		</form>
 		<h1>Список дел</h1>
 		<ul id="tasklist">

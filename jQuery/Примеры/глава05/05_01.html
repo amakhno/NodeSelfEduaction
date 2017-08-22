@@ -4,6 +4,31 @@
 <meta charset="UTF-8">
 <title>Введение в события</title>
 <link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$("html").dblclick(function (eventObject) {
+			alert("Ой  X = " + eventObject.clientX + "; Y = " + eventObject.clientY);
+		});		//end dblclick
+
+		$("a").mouseover(function (eventObject) {
+			var message = "<p>Вы навели указатель на ссыдку</p>";
+			$(".main").append(message);
+		});		//end mouseover
+
+		$("#button").click(function (eventObject) {
+			$(this).val("Прекрати это");
+		});		//end mouseover
+
+		$("#textfield").focus(function () {
+			$(this).css("background-color", "#ff0000");
+		})
+
+		$("#textfield").blur(function () {
+			$(this).css("background-color", "#fffffff");
+		})
+	});		//end ready
+</script>
 
 </head>
 <body id="events">
@@ -16,8 +41,11 @@
 		<h1>Введение в события</h1>
 		<p><a href="#">Ссылка</a></p>
 		<form action="#" method="get">
-		<fieldset><legend>Форма</legend><p><input name="button" type="button" id="button" value="Кнопка"></p>
-		<p><input name="textfield" id="textfield" type="text"></p></fieldset>
+			<fieldset>
+				<legend>Форма</legend>
+				<p><input name="button" type="button" id="button" value="Кнопка"></p>
+				<p><input name="textfield" id="textfield" type="text"></p>
+			</fieldset>
 		</form>
 		</div>
 	</div>
