@@ -5,7 +5,14 @@
 <title>Использование функций</title>
 <link href="../_css/site.css" rel="stylesheet">
 <script>
-
+function printToday (n) {
+  n++;
+  return function () {
+    n++;
+    document.write(new Date().toDateString() + " " + n + " ");
+  }
+}
+var a = printToday(4);
 </script>
 </head>
 
@@ -17,7 +24,12 @@
   <div class="content">
     <div class="main">
       <h1>Использование функций</h1>
-      <p>Сегодня <strong> </strong></p>
+      <p>Сегодня <strong> 
+        <script>
+        a();  
+        a();  
+        </script>
+       </strong></p>
     </div>
   </div>
   <footer>

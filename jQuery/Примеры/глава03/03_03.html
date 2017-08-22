@@ -5,7 +5,24 @@
 <title>Простая викторина</title>
 <link href="../_css/site.css" rel="stylesheet">
 <script>
-
+  var score = 0;
+  var questions = [
+    ["Сколько лун у планеты Земля", 1],
+    ["Сколько лун у планеты Венера", 0],
+    ["Сколько лун у планеты Сатурн", 31],
+  ];
+  function askQuestion (question) {
+    var answer = prompt(question[0], "");
+    if (answer == question[1]) {
+      alert ("Верно");
+      score ++;
+    } else {
+      alert("Неверно. Правильный ответ " + question[1]);
+    }
+  } 
+  for (var i = 0; i<questions.length; i++) {
+    askQuestion(questions[i]);
+  }
 </script>
 </head>
 
@@ -18,9 +35,11 @@
     <div class="main">
       <h1>Простая викторина</h1>
       <script>
-		
-		</script>
-      </div>
+        var message = "Вы ответили правильно на " + score;
+        message += " из " + questions.length + " вопросов.";    
+        document.write("<p>" + message + "</p>");
+		  </script>
+    </div>
   </div>
   <footer>
 <p>JavaScript и jQuery: Недостающее Руководство, Дэвид МакФарланд.</p>
