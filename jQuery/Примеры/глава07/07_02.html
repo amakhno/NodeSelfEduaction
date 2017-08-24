@@ -46,7 +46,19 @@ $('#gallery img').each(function(i) {
 }); // end each
 	
 //введите новый программный код под этой строкой
-	
+$("#gallery a").click(function (event) {
+	event.preventDefault();
+	var ImagePath = $(this).attr("href");
+	var $oldImage = $("#photo img");
+	var newImage = $("<img src=\"" + ImagePath + "\">");
+	newImage.hide();
+	$("#photo").prepend(newImage);
+	newImage.fadeIn(1000);
+	$oldImage.fadeOut(1000, function  () {
+		$(this).remove();
+	});
+});
+$("#gallery a").first().click();	
 	
 }); // end ready
 </script>
